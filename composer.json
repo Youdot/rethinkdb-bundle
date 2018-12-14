@@ -1,0 +1,11 @@
+{
+    "name": "youdot/rethinkdb-bundle",
+    "type": "symfony-bundle",
+    "require": {
+        "danielmewes/php-rql": "^2.3",
+        "symfony/config": "^4.2",
+        "symfony/dependency-injection": "^4.2",
+        "symfony/http-kernel": "^4.2"
+    },
+    "license": "MIT"
+}
