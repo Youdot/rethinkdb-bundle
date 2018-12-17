@@ -14,7 +14,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('hostname')->defaultNull()->end()
+                ->scalarNode('hostname')->end()
                 ->scalarNode('port')->defaultNull()->end()
                 ->scalarNode('database')->defaultNull()->end()
                 ->scalarNode('apiKey')->defaultNull()->end()
