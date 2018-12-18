@@ -7,17 +7,40 @@ use r\Query;
 
 class RethinkDB
 {
-    private $parameters;
+    /**
+     * @var null|string
+     */
+    private $hostname;
+    /**
+     * @var null|string
+     */
+    private $port;
+    /**
+     * @var null|string
+     */
+    private $database;
+    /**
+     * @var null|string
+     */
+    private $apiKey;
+    /**
+     * @var null|string
+     */
+    private $timeout;
 
-    public function __construct($parameters)
+    public function __construct(?string $hostname, ?string $port, ?string $database, ?string $apiKey, ?string $timeout)
     {
-        $this->parameters = $parameters;
+
+        $this->hostname = $hostname;
+        $this->port = $port;
+        $this->database = $database;
+        $this->apiKey = $apiKey;
+        $this->timeout = $timeout;
     }
 
     public function getConnection()
     {
-        [$hostname, $port, $database, $apiKey, $timeout] = $this->parameters;
-        return connect($hostname, $port, $database, $apiKey, $timeout);
+        return connect($this->hostname, $this->port, $this->database, $this->apiKey, $this->timeout);
     }
 
     public function run(Query $query)

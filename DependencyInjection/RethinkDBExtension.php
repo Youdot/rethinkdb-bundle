@@ -14,9 +14,21 @@ class RethinkDBExtension extends ConfigurableExtension
 
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
     {
+        $hostname = $mergedConfig['hostname'];
+        $port = $mergedConfig['port'];
+        $database = $mergedConfig['database'];
+        $apiKey = $mergedConfig['apiKey'];
+        $timeout = $mergedConfig['timeout'];
+
         $container->register(
             'Youdot\RethinkDBBundle\Service\RethinkDB',
             'Youdot\RethinkDBBundle\Service\RethinkDB'
-        )->addArgument($mergedConfig);
+        )
+            ->addArgument($hostname)
+            ->addArgument($port)
+            ->addArgument($database)
+            ->addArgument($apiKey)
+            ->addArgument($timeout)
+        ;
     }
 }
