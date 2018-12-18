@@ -15,8 +15,8 @@ class RethinkDBExtension extends ConfigurableExtension
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
     {
         $container->register(
-            'Youdot\RethinkDBBundle\Service\Connection',
-            'Youdot\RethinkDBBundle\Service\Connection'
+            'Youdot\RethinkDBBundle\Service\RethinkDB',
+            'Youdot\RethinkDBBundle\Service\RethinkDB'
         )->addArgument($mergedConfig);
     }
 }
