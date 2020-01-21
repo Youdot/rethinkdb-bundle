@@ -20,10 +20,11 @@ class RethinkDBExtension extends ConfigurableExtension
         $apiKey = $mergedConfig['apiKey'];
         $timeout = $mergedConfig['timeout'];
 
-        $container->register(
-            'Youdot\RethinkDBBundle\Service\RethinkDB',
-            'Youdot\RethinkDBBundle\Service\RethinkDB'
-        )
+        $container
+            ->register(
+                'Youdot\RethinkDBBundle\Service\RethinkDB',
+                'Youdot\RethinkDBBundle\Service\RethinkDB'
+            )
             ->addArgument($hostname)
             ->addArgument($port)
             ->addArgument($database)
